@@ -12,5 +12,5 @@
  *
  */
 Router::define("/","MainController/teste");
-Router::define("cadastra","MainController/cadastraemail");
+Router::define("/cadastra","MainController/cadastraemail");
 
