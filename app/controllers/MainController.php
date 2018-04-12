@@ -18,9 +18,8 @@ class MainController extends Controller {
 	    $novo = new Email();
 	    $novo->setNome($_POST["novo_nome"]);
 	    $novo->setEmail($_POST["novo_email"]);
-	    dump($novo->save());
-	    //dump($novo);
-	    //redirect("/");
+	    $novo->save();
+	    redirect("/");
     }
 
 }
