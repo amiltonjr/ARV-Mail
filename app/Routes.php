@@ -11,4 +11,6 @@
  * URL, as que vierem após a primeira não serão utilizadas.
  *
  */
+Router::define("/","MainController/teste");
+Router::define("cadastra","MainController/cadastraemail");
 
