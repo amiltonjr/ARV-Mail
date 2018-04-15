@@ -21,7 +21,7 @@ define('DB_NAME', 'arv');
 
 
 // Email settings
-define('MAIL_FROM_NAME', 'Fulano'); // Shortcut to the name to be shown as 'from'
+define('MAIL_FROM_NAME', 'Equipe ARV'); // Shortcut to the name to be shown as 'from'
 
 define('SMTP_HOST', 'smtp.gmail.com');
 define('SMTP_PORT', '465');
