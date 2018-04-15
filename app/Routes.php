@@ -11,6 +11,9 @@
  * URL, as que vierem após a primeira não serão utilizadas.
  *
  */
-Router::define("/","MainController/teste");
+Router::define("/","MainController/chamaview");
 Router::define("/cadastra","MainController/cadastraemail");
+Router::define("/envia","MainController/enviaemail");
+Router::define("/exclui/{id}","MainController/excluiemail");
+
 

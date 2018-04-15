@@ -4,18 +4,11 @@ class MainController extends Controller {
 	public function index () {
 		view('Default');
 	}
-	public function teste(){
-	    if($this->getRequest()=="get") {
-            $lista = Email::make()->all();
+	public function chamaview(){
 
-            view("cadastroemail", $lista);
+        $lista = Email::make()->all();
 
-
-        }else if(isset($_POST["novo"])) {
-            $this->cadastraemail();
-        }else if(isset($_POST["enviar"])){
-            $this->enviaemail();
-        }
+        view("principal", $lista);
 
     }
     public function cadastraemail(){
@@ -25,21 +18,34 @@ class MainController extends Controller {
 	    $novo->save();
 	    redirect("/");
     }
-    public function enviaemail(){
-	    if(isset($_POST["email_id"])){
-	        $email = new Email();
-	        $email->setId($_POST["email_id"]);
-	        $email = Email::make()->get($email->getId());
-	        dump($email);
-            $mensagem = new Mail();
-            $mensagem->setFrom("testadorwilson@gmail.com");
-            $mensagem->setTo($email->getEmail());
-            $mensagem->setSubject($_POST["assunto"]);
-            $mensagem->setContent($_POST["corpo_email"]);
-            $mensagem->setFromName("Wilson");
-            dump($mensagem);
-            $mensagem->send();
+    public function enviaemail()
+    {
+        if(isset($_POST["email_id"])) {
+            foreach ($_POST["email_id"] as $id) {
+
+                $email = Email::make()->get($id);
+
+                $mensagem = new Mail();
+                $mensagem->setFrom("testadorwilson@gmail.com");
+                $mensagem->setTo($email->getEmail());
+                $mensagem->setSubject($_POST["assunto"]);
+                $mensagem->setContent($_POST["corpo_email"]);
+                $mensagem->setFromName("Wilson");
+                $mensagem->send();
+                redirect("/");
+            }
+        } else {
+            echo "<script>alert('Selecione ao menos um email ')</script>";
+            echo "<meta http-equiv='Refresh' content='0;url=".SYSROOT."'>";
         }
+    }
+    public function excluiemail($data){
+        $email = Email::make()->get($data["id"]);
+        $email->delete();
+        redirect("/");
+
+
+
     }
 
 }

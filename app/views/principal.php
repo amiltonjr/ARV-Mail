@@ -10,13 +10,13 @@
 <body>
     <div>
         <h3>Adicionar email</h3>
-        <form METHOD="post">
+        <form METHOD="post" action="cadastra">
             <input type="text" name="novo_nome" placeholder="Nome"><br>
             <input type="email" name="novo_email" placeholder="endereço de email ">
             <input type="submit" name="novo" value="Novo"><br>
         </form>
 
-        <form METHOD="post">
+        <form METHOD="post" action="envia">
         <table border="1">
             <tr>
                 <th>Nome</th>
@@ -27,7 +27,8 @@
              echo"<tr>
                     <td>".$item->getNome()."</td>
                     <td>".$item->getEmail()."</td>
-                    <td><input type='radio' name='email_id' value='".$item->getId()."'></td>
+                    <td><input type='checkbox' name='email_id[]' value='".$item->getId()."' ></td>
+                    <td><a href='exclui/".$item->getId()."'>Excluir</a></td>
                   </tr>";
             }
             ?>
