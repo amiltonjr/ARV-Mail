@@ -26,7 +26,12 @@ class App
 			if ($url[0] == '/') {
 				$url = substr($url, 1);
 			}
-			header('Location: '.SYSROOT.'/'.$url);
+
+			if(SYSROOT[strlen(SYSROOT)-1] == '/')
+                $finalUrl = SYSROOT.$url;
+			else
+                $finalUrl = SYSROOT.'/'.$url;
+			header('Location: '.$finalUrl);
 		}
 		return (new App);
 	}
