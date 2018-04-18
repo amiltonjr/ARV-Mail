@@ -1,0 +1,98 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    font-family: sans-serif;
+}
+
+
+.container {
+    max-width: 1000px;
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+}
+
+.row {
+    display: block;
+    clear: both;
+    width: 100%;
+    margin: 0;
+    padding: 5px;
+    text-align: left;
+}
+
+.col-1-2 {
+    width: 45%;
+    display: inline-block;
+    margin: 0 auto;
+    vertical-align: top;
+}
+
+.col-1-12 {
+    width: 8%;
+    display: inline-block;
+    margin: 0 auto;
+    vertical-align: top;
+}
+
+.col-2-12 {
+    width: 16%;
+    display: inline-block;
+    margin: 0 auto;
+    vertical-align: top;
+}
+
+.col-3-12 {
+    width: 24%;
+    display: inline-block;
+    margin: 0 auto;
+    vertical-align: top;
+}
+
+.centered {
+    text-align: center;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+
+.list-block {
+    display: block;
+    width: 90%;
+    max-width: 350px;
+    margin: 20px auto;
+    max-height: 500px;
+    overflow-y: auto;
+    background: rgb(250,250,250);
+    border-radius: 5px;
+    box-shadow: 0 3px 5px rgba(0,0,0,0.2);
+}
+
+
+input, button, textarea {
+    padding: 10px;
+    font-size: 10pt;
+    border-radius: 4px;
+    border: 1px solid rgb(200,200,200);
+}
+
+button {
+    background-color: rgb(100,130,200);
+    color: rgb(255,255,255);
+    border-color: rgb(100,130,180);
+}
+
+textarea {
+    max-width: 100%;
+    resize: none;
+    height: 205px;
+    margin: 15px 0;
+}
+
+.new input {
+    max-width: 30%;
+}
