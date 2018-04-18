@@ -25,7 +25,8 @@ class MainController extends Controller {
 
                 $email = Email::make()->get($id);
 
-                $mensagem = new Mail();
+                $mensagem = new M
+                ail();
                 $mensagem->setFrom("testadorwilson@gmail.com");
                 $mensagem->setTo($email->getEmail());
                 $mensagem->setSubject($_POST["assunto"]);
