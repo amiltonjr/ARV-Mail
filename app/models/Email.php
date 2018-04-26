@@ -6,7 +6,7 @@ class Email extends Model {
     private $email;
     private $domain;
     private $registrationDate;
-    private $group;
+    private $group_id;
 
     /**
      * @return mixed
@@ -27,17 +27,17 @@ class Email extends Model {
     /**
      * @return mixed
      */
-    public function getGroup()
+    public function getGroupId()
     {
-        return $this->group;
+        return $this->group_id;
     }
 
     /**
-     * @param mixed $group
+     * @param mixed $group_id
      */
-    public function setGroup($group)
+    public function setGroupId($group_id)
     {
-        $this->group = $group;
+        $this->group_id = $group_id;
     }
     /**
      * @return mixed

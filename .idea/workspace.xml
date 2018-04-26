@@ -2,9 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e6341857-28f2-453f-b02a-0b69c3772a15" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nbproject/project.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nbproject/project.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/MainController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/MainController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/group.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/Group.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/Email.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/Email.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/system/components/DB.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/system/components/DB.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/principal.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/principal.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -16,20 +19,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="principal.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="principal.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/principal.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-60">
-              <caret line="41" column="42" lean-forward="true" selection-start-line="41" selection-start-column="42" selection-end-line="41" selection-end-column="42" />
+              <caret line="41" column="42" selection-start-line="41" selection-start-column="42" selection-end-line="41" selection-end-column="42" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MainController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/MainController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="25" selection-start-line="25" selection-end-line="25" />
+            <state relative-caret-position="555">
+              <caret line="58" column="39" lean-forward="true" selection-start-line="58" selection-start-column="39" selection-end-line="58" selection-end-column="39" />
             </state>
           </provider>
         </entry>
@@ -56,7 +59,7 @@
         <entry file="file://$PROJECT_DIR$/app/system/components/DB.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="5895">
-              <caret line="393" column="84" selection-start-line="393" selection-start-column="84" selection-end-line="393" selection-end-column="84" />
+              <caret line="396" column="84" selection-start-line="396" selection-start-column="84" selection-end-line="396" selection-end-column="84" />
             </state>
           </provider>
         </entry>
@@ -318,7 +321,7 @@
       <workItem from="1524238940402" duration="275000" />
       <workItem from="1524608681253" duration="598000" />
       <workItem from="1524746033434" duration="10401000" />
-      <workItem from="1524784325403" duration="1045000" />
+      <workItem from="1524784325403" duration="1371000" />
     </task>
     <task id="LOCAL-00001" summary="Estilizada página principal">
       <created>1524068821317</created>
@@ -338,7 +341,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="65248000" />
+    <option name="totallyTimeSpent" value="65574000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="46" y="-11" width="1321" height="780" extended-state="6" />
@@ -627,7 +630,7 @@
     <entry file="file://$PROJECT_DIR$/app/system/components/DB.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5895">
-          <caret line="393" column="84" selection-start-line="393" selection-start-column="84" selection-end-line="393" selection-end-column="84" />
+          <caret line="396" column="84" selection-start-line="396" selection-start-column="84" selection-end-line="396" selection-end-column="84" />
         </state>
       </provider>
     </entry>
@@ -673,13 +676,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/MainController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" selection-start-line="25" selection-end-line="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/Group.php">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -690,7 +686,14 @@
     <entry file="file://$PROJECT_DIR$/app/views/principal.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-60">
-          <caret line="41" column="42" lean-forward="true" selection-start-line="41" selection-start-column="42" selection-end-line="41" selection-end-column="42" />
+          <caret line="41" column="42" selection-start-line="41" selection-start-column="42" selection-end-line="41" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/MainController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="555">
+          <caret line="58" column="39" lean-forward="true" selection-start-line="58" selection-start-column="39" selection-end-line="58" selection-end-column="39" />
         </state>
       </provider>
     </entry>
