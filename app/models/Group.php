@@ -6,7 +6,7 @@
  * Time: 12:28
  */
 
-class group extends Model{
+class Group extends Model{
     private $id;
     private $name;
     private $description;
@@ -58,6 +58,6 @@ class group extends Model{
     {
         $this->description = $description;
     }
-    
+
 
 }

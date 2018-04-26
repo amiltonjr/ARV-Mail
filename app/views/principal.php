@@ -28,8 +28,9 @@
         <br>
         <form METHOD="post" action="cadastragrupo">
             <h2>Adicionar Grupo</h2>
-            <input type="text" name="novo_grupo" placeholder="Grupo">
-            <button type="submit" name="novo">Novo</button>
+            <input type="text" name="nome_grupo" placeholder="Grupo">
+            <textarea name="descricao_grupo" rows="10" cols="40" placeholder="Descricao"></textarea><br>
+            <button type="submit" name="novo_grupo">Novo</button>
         </form>
         <form METHOD="post" action="envia">
                 <h3>Destinatários</h3>

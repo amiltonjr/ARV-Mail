@@ -15,9 +15,16 @@ class MainController extends Controller {
 	    $novo->save();
 	    redirect("/");
     }
-    public function cadastragrupo(){
-        if(isset($_POST["novo_grupo"])){
-            
+    public function cadastragrupo()
+    {
+        if (isset($_POST["novo_grupo"])) {
+            $grupo = new Group();
+            $grupo->setName($_POST["nome_grupo"]);
+            $grupo->setDescription($_POST["descricao_grupo"]);
+            dump($grupo->save());
+//	        redirect("/");
+	        var_dump($grupo);
+
         }
     }
 
@@ -27,7 +34,6 @@ class MainController extends Controller {
             foreach ($_POST["email_id"] as $id) {
 
                 $email = Email::make()->get($id);
-
                 $mensagem = new Mail();
                 $mensagem->setFrom("testadorwilson@gmail.com");
                 $mensagem->setTo($email->getEmail());
