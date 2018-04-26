@@ -18,12 +18,19 @@
         <h2>Adicionar email</h2>
         <form METHOD="post" action="cadastra">
             <input type="text" name="novo_nome" placeholder="Nome">
-            <input type="email" name="novo_email" placeholder="Endereço de email ">
+            <input type="email" name="novo_email" placeholder="Endereço de email "><br>
+            <select>
+                <option>Teste</option>
+            </select>
             <button type="submit" name="novo">Novo</button><br>
         </form>
 
         <br>
-
+        <form METHOD="post" action="cadastragrupo">
+            <h2>Adicionar Grupo</h2>
+            <input type="text" name="novo_grupo" placeholder="Grupo">
+            <button type="submit" name="novo">Novo</button>
+        </form>
         <form METHOD="post" action="envia">
                 <h3>Destinatários</h3>
             <div class="list-block" style="padding: 15px 10px;">

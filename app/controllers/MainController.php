@@ -10,11 +10,17 @@ class MainController extends Controller {
     }
     public function cadastraemail(){
 	    $novo = new Email();
-	    $novo->setNome($_POST["novo_nome"]);
+	    $novo->setName($_POST["novo_nome"]);
 	    $novo->setEmail($_POST["novo_email"]);
 	    $novo->save();
 	    redirect("/");
     }
+    public function cadastragrupo(){
+        if(isset($_POST["novo_grupo"])){
+            
+        }
+    }
+
     public function enviaemail()
     {
         if(isset($_POST["email_id"])) {
