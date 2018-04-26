@@ -16,4 +16,7 @@ Router::define("/cadastra","MainController/cadastraemail");
 Router::define("/envia","MainController/enviaemail");
 Router::define("/exclui/{id}","MainController/excluiemail");
 
-
+// Rota que exibe a tela de relatório de emails
+Router::define('relatorioemails', 'RelatoriosController/relatorioEmails');
+// Rota que exibe a tela de relatório de mensagens
+Router::define('relatoriomensagens', 'RelatoriosController/relatorioMensagens');
