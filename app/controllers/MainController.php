@@ -8,17 +8,37 @@ class MainController extends Controller {
         view("principal", $lista);
 
     }
-    public function cadastraemail(){
-	    $novo = new Email();
-	    $novo->setName($_POST["novo_nome"]);
-	    $novo->setEmail($_POST["novo_email"]);
-	    $novo->save();
+    
+    public function isValidEmail($email='') {
+        return ($email = filter_var($email, FILTER_VALIDATE_EMAIL)) !== false;
+    }
+    
+    public function getEmailDomain($email='') {
+        return substr(strrchr($email, "@"), 1);
+    }
+    
+    public function cadastraemail() {
+	// Se o endereço de e-mail é válido
+        if (isset($_POST['novo_email']) && $this->isValidEmail($_POST['novo_email'])) {
+            $email = new Email();
+	    $email->setName($_POST['novo_nome']);
+	    $email->setEmail($_POST['novo_email']);
+            $email->SetDomain($this->getEmailDomain($email->getEmail()));
+            $email->setRegistrationDate('CURRENT_TIMESTAMP');
+            $email->setGroupId($_POST['group_id']);
+	    $email->save();
+        }
 	    redirect("/");
     }
     public function cadastragrupo(){
-        if(isset($_POST["novo_grupo"])){
-            
+        if (isset($_POST['novo_grupo'])) {
+            /*$grupo = new Group();
+	    $grupo->setName($_POST["novo_nome"]);
+	    $grupo->setEmail($_POST["novo_email"]);
+	    $grupo->save();*/
         }
+        
+        redirect("/");
     }
 
     public function enviaemail()

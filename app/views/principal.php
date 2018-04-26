@@ -19,8 +19,8 @@
         <form METHOD="post" action="cadastra">
             <input type="text" name="novo_nome" placeholder="Nome">
             <input type="email" name="novo_email" placeholder="Endereço de email "><br>
-            <select>
-                <option>Teste</option>
+            <select name="group_id">
+                <option value="0" selected="selected">- Nenhum -</option>
             </select>
             <button type="submit" name="novo">Novo</button><br>
         </form>

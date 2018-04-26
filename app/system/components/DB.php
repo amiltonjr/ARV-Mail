@@ -42,6 +42,7 @@ class DB
 	public static function save ($object)
     {
         $arrVars = $object->getObjVars();
+        //print_r($object);
 
         // Remove o atributo 'primarykey' da lista
         $arr = $arrVars;
@@ -51,6 +52,7 @@ class DB
                 $arrVars[] = $var;
             }
         }
+        //print_r($arrVars);
 
         // Define o número que deve ser subtraído
         // da contagem máxima de elementos nas rotinas abaixo
@@ -92,7 +94,7 @@ class DB
             $sql .= ' WHERE ' . $object->primarykey . ' = :' . $object->primarykey . ';';
         }
 
-
+        //echo "\n".$sql."\n";
         $con = self::connect();
         $stmt = $con->prepare($sql);
 
@@ -106,9 +108,10 @@ class DB
 
                 $getFunc = 'get' . $funcName;
                 $stmt->bindValue(':' . $var, (string)$object->$getFunc());
+                //echo '$stmt->bindValue(":"'.$var.', '.(string)$object->$getFunc().');'."\n";
             }
         }
-
+        //exit;
         if (!self::isNew($object)) {
             $getFunc = 'get' . ucfirst($object->primarykey);
             $stmt->bindValue(':' . $object->primarykey, (int)$object->$getFunc());

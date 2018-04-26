@@ -6,7 +6,7 @@
  * Time: 12:28
  */
 
-class group extends Model{
+class Group extends Model{
     private $id;
     private $name;
     private $description;
