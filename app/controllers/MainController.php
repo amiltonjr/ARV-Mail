@@ -32,10 +32,10 @@ class MainController extends Controller {
     }
     public function cadastragrupo(){
         if (isset($_POST['novo_grupo'])) {
-            /*$grupo = new Group();
-	    $grupo->setName($_POST["novo_nome"]);
-	    $grupo->setEmail($_POST["novo_email"]);
-	    $grupo->save();*/
+            $grupo = new Group();
+            $grupo->setName($_POST["nome_grupo"]);
+            $grupo->setDescription($_POST["descricao_grupo"]);
+            $grupo->save();
         }
 
         redirect("/");

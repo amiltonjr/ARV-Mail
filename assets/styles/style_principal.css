@@ -79,11 +79,18 @@ html, body {
 }
 
 
-input, button, textarea {
+input, button, textarea, select {
     padding: 10px;
     font-size: 10pt;
     border-radius: 4px;
     border: 1px solid rgb(200,200,200);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+select {
+    padding-right: 30px;
 }
 
 button {
@@ -95,10 +102,19 @@ button {
 textarea {
     max-width: 100%;
     resize: none;
-    height: 205px;
+    height: 170px;
     margin: 15px 0;
 }
 
-.new input {
-    max-width: 30%;
+textarea.mini {
+    height: 60px;
+}
+
+.new input, .new select {
+    max-width: 40%;
+}
+
+input.full {
+    width: 100%;
+    max-width: 77%;
 }

@@ -1,10 +1,4 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: renato
- * Date: 26/04/18
- * Time: 12:28
- */
+<?php defined('INITIALIZED') OR exit('You cannot access this file directly');
 
 class Group extends Model{
     private $id;
