@@ -74,7 +74,9 @@
                 }
                 ?>
             </div>
-            <button type="submit" name="enviar">Enviar</button>
+            <div class="centered">
+                <button type="submit" name="enviar">Enviar</button>
+            </div>
         </form>
     </div>
 @endsection
