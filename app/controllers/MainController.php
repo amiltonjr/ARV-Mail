@@ -4,8 +4,9 @@ class MainController extends Controller {
 	public function chamaview(){
 
         $lista = Email::make()->all();
+        $grupos = Group::make()->all();
 
-        view("principal", $lista);
+        view("principal", [$lista, $grupos]);
 
     }
 

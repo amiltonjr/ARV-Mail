@@ -21,6 +21,11 @@
             <input type="email" name="novo_email" placeholder="Endereço de email "><br>
             <select name="group_id">
                 <option value="0" selected>- Nenhum -</option>
+                <?php
+                foreach($data[1] as $grupo){
+                    echo '<option value="'.$grupo->getId().'">'.$grupo->getName().'</option>';
+                }
+                ?>
             </select>
             <button type="submit" name="novo">Novo</button><br>
         </form>
@@ -56,7 +61,7 @@
                 </div>
                 <hr>
                 <?php
-                foreach ($data as $item){
+                foreach ($data[0] as $item){
                     echo '<label><div class="row">';
                     echo    '<div class="col-1-12">';
                     echo        '<input type="checkbox" name="email_id[]" value="'.$item->getId().'">';
