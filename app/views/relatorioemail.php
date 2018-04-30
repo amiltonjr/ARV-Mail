@@ -3,7 +3,12 @@
 
 @section('content')
     <div class="topo">
-        <h2>Bobão, me dá um chicletão</h2>
+        <h2>Lista de emails por domínio</h2>
+        <?php
+        foreach($data[1] as $grupo){
+            dump($grupo->getId());
+        }
+        ?>
     </div>
 
 

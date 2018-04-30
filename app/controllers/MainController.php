@@ -50,13 +50,19 @@ class MainController extends Controller {
                 $email = Email::make()->get($id);
 
                 $mensagem = new Mail();
+                $Sent = new Sent();
                 $mensagem->setFrom("testadorwilson@gmail.com");
                 $mensagem->setTo($email->getEmail());
+                $Sent->setEmailId($email->getId());
                 $mensagem->setSubject($_POST["assunto"]);
+                $Sent->setSubject($_POST["assunto"]);
+                $Sent->setSendTime(date('h:i:s'));
                 $mensagem->setContent($_POST["corpo_email"]);
+                $Sent->setMessage($_POST["corpo_email"]);
                 $mensagem->setFromName("Wilson");
-                $mensagem->send();
-                redirect("/");
+                dump($Sent->send());
+                dump($mensagem->send());
+               // redirect("/");
             }
         } else {
             echo "<script>alert('Selecione ao menos um email ')</script>";
