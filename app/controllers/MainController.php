@@ -1,23 +1,25 @@
 <?php defined('INITIALIZED') OR exit('You cannot access this file directly');
 
 class MainController extends Controller {
+    //função que dá o caminho para a view principal com as variáveis necessárias
 	public function chamaview(){
-
+        //consulta de emails para a view
         $lista = Email::make()->all();
+        //consulta de grupos para a view
         $grupos = Group::make()->all();
 
         view("principal", [$lista, $grupos]);
 
     }
-
+    //verifica se o email é válido
     public function isValidEmail($email='') {
         return ($email = filter_var($email, FILTER_VALIDATE_EMAIL)) !== false;
     }
-
+    //extrai o domínio de um email passado como parãmetro
     public function getEmailDomain($email='') {
         return substr(strrchr($email, "@"), 1);
     }
-
+    //cadastra um novo email com base no formulário de email da view principal
     public function cadastraemail() {
 	// Se o endereço de e-mail é válido
         if (isset($_POST['novo_email']) && $this->isValidEmail($_POST['novo_email'])) {
@@ -31,6 +33,7 @@ class MainController extends Controller {
         }
 	    redirect("/");
     }
+    //cadastra um novo grupo com base no formulário de grupo na view principal
     public function cadastragrupo(){
         if (isset($_POST['novo_grupo'])) {
             $grupo = new Group();
@@ -41,9 +44,10 @@ class MainController extends Controller {
 
         redirect("/");
     }
-
+    //envia email com base no formulário de enviar email da view principal
     public function enviaemail()
     {
+        //verifica se o post foi enviado por completo
         if(isset($_POST["email_id"])) {
             foreach ($_POST["email_id"] as $id) {
 
@@ -71,6 +75,7 @@ class MainController extends Controller {
         }
     }
 
+    //exclui email com base no link da tabela de emails da view principal
     public function excluiemail($data){
         $email = Email::make()->get($data["id"]);
         $email->delete();
