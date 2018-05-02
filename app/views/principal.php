@@ -15,10 +15,11 @@
     </div>
 
     <div class="col-1-2 centered new">
-        <h2>Adicionar email</h2>
+        <h2>Adicionar email de destinatário</h2>
         <form METHOD="post" action="cadastra">
             <input type="text" name="novo_nome" placeholder="Nome">
             <input type="email" name="novo_email" placeholder="Endereço de email "><br>
+            Grupo:
             <select name="group_id">
                 <option value="0" selected>- Nenhum -</option>
                 <?php
@@ -27,24 +28,24 @@
                 }
                 ?>
             </select>
-            <button type="submit" name="novo">Novo</button><br>
+            <button type="submit" name="novo">Adicionar destinatário</button><br>
         </form>
 
         <br>
         <br>
 
         <form METHOD="post" action="cadastragrupo">
-            <h2>Adicionar Grupo</h2>
-            <input type="text" name="nome_grupo" class="full" placeholder="Grupo">
+            <h2>Adicionar grupo</h2>
+            <input type="text" name="nome_grupo" class="full" placeholder="Nome do grupo">
             <textarea name="descricao_grupo" class="mini" rows="3" cols="40" placeholder="Descrição"></textarea><br>
-            <button type="submit" name="novo_grupo">Novo</button>
+            <button type="submit" name="novo_grupo">Adicionar grupo</button>
         </form>
     </div>
     <div class="col-1-2">
         <form METHOD="post" action="envia">
             <h2>Enviar email</h2>
             <input type="text" name="assunto" placeholder="Assunto"><br/>
-            <textarea name="corpo_email" rows="10" cols="40" placeholder="Conteúdo"></textarea><br>
+            <textarea name="corpo_email" rows="10" cols="40" placeholder="Mensagem"></textarea><br>
             <b>Destinatários</b>
             <div class="list-block" style="padding: 15px 10px;">
                 <div class="row bold">
