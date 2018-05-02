@@ -6,6 +6,10 @@ html, body {
     font-family: sans-serif;
 }
 
+a, a:hover, a:visited, a:active, a:focus {
+    color: rgb(100,130,200);
+}
+
 .topo {
     padding: 15px;
     border-bottom: 1px solid rgb(160,160,160);

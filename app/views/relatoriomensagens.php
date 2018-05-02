@@ -18,7 +18,7 @@
     <h2>Lista de mensagens enviadas</h2>
     <form METHOD="post" action="">
         <b>Filtrar por datas:</b><br>
-        <input type="date" name="data_inicio" placeholder="Data início(dd/mm/yyyy)"
+        <input type="date" name="data_inicio" placeholder="Data início (dd/mm/yyyy)"
                value="<?= isset($_POST['data_inicio']) ? $_POST['data_inicio'] : '' ?>">
         <input type="date" name="data_fim" placeholder="Data fim (dd/mm/yyyy)"
                value="<?= isset($_POST['data_fim']) ? $_POST['data_fim'] : '' ?>">
