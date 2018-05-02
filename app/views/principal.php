@@ -4,7 +4,7 @@
     <div class="topo">
         <div class="col-1-2 centered">
             <a href="relatorioemails">
-                Visualizar relatório de e-mails cadastrados
+                Visualizar relatório de emails cadastrados
             </a>
         </div>
         <div class="col-1-2 centered">
