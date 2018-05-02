@@ -9,7 +9,7 @@
             </a>
         </div>
         <div class="col-1-2 centered">
-            <a href="#">
+            <a href="relatoriomensagens/exportar/<?= isset($_POST['data_inicio']) ? $_POST['data_inicio'] : 'null' ?>/<?= isset($_POST['data_fim']) ? $_POST['data_fim'] : 'null' ?>">
                 Exportar para TXT
             </a>
         </div>
@@ -54,7 +54,7 @@
             echo        $item[0]->getMessage();
             echo    '</div>';
             echo    '<div class="col-2-12">';
-            echo        date('d/m/Y, H:i:s', strtotime($item[0]->getSendTime()));
+            echo        date('d/m/Y, H:i', strtotime($item[0]->getSendTime()));
             echo    '</div>';
             echo    '<div class="col-2-12">';
             echo        $item[1]->getEmail();

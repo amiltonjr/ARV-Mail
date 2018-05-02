@@ -59,7 +59,7 @@ class RelatoriosController extends Controller {
 
 
     /**
-     * Realiza a exibição e download de txt
+     * Realiza a exibição e download de txt do relatório de emails
      */
     public function relatorioEmailsTxt() {
         $filename = 'relatorioEmails.txt';
@@ -68,7 +68,6 @@ class RelatoriosController extends Controller {
 
         $list_consulta_dominio = Email::make()->select('Distinct domain')->find();
 
-        $arrDominios = array();
         foreach($list_consulta_dominio as $k => $i) {
             $emails = Email::make()->where('domain = ?', $i->getDomain())->find();
 
@@ -78,7 +77,45 @@ class RelatoriosController extends Controller {
             }
             echo "\r\n\r\n";
         }
+    }
+
+    /**
+     * Realiza a exibição e download de txt do relatório de mensagens
+     */
+    public function relatorioMensagensTxt($get) {
+        $filename = 'relatorioMensagnes.txt';
+        header('Content-disposition: attachment; filename='.$filename);
+        header('Content-type: text/plain');
 
 
+        $datainicio = isset($get['inicio']) && $get['inicio'] != 'null' ? $get["inicio"] . ' 00:00:00' : '';
+        $datafim = isset($get["fim"]) && $get['fim'] != 'null' ? $get["fim"] . ' 23:59:59' : '';
+
+        $listamensagens = Sent::make()->select(); // Inicia o processo de busca no BD
+
+        // Realiza a busca conforme os filtros recebidos
+        if($datainicio != '' && $datafim == '') { // Obteve apenas data de inicio
+            $listamensagens->where('sendTime >= ?', $datainicio);
+
+        } else if($datainicio == '' && $datafim != '') { // Obteve apenas data de fim
+            $listamensagens->where('sendTime <= ?', $datafim);
+
+        } else if($datainicio != '' && $datafim != '') { // Obteve as duas datas
+            $listamensagens->where('sendTime between ? and ?', [$datainicio, $datafim]);
+
+        }
+
+        // Executa a consulta SQL
+        $listamensagens = $listamensagens->find();
+
+        foreach($listamensagens as $k => $item) {
+            $email = Email::make()->get($item->getEmailId());
+
+            echo '- Email: '.$email->getEmail()."\r\n";
+            echo '  Data/Hora: '.date('d/m/Y, H:i', strtotime($item->getSendTime()))."\r\n";
+            echo '  Assunto: '.$item->getSubject()."\r\n";
+            echo '  Mensagem: '.$item->getMessage()."\r\n";
+            echo "\r\n\r\n";
+        }
     }
 }

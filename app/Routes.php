@@ -23,3 +23,5 @@ Router::define('relatorioemails', 'RelatoriosController/relatorioEmails');
 Router::define('relatoriomensagens', 'RelatoriosController/relatorioMensagens');
 // Rota para salvar arquiv txt do relatório de emails
 Router::define('relatorioemails/exportar', 'RelatoriosController/relatorioEmailsTxt');
+// Rota para salvar arquiv txt do relatório de mensagens
+Router::define('relatoriomensagens/exportar/{inicio}/{fim}', 'RelatoriosController/relatorioMensagensTxt');
