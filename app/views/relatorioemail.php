@@ -9,7 +9,7 @@
             </a>
         </div>
         <div class="col-1-2 centered">
-            <a href="#">
+            <a href="relatorioemails/exportar">
                 Exportar para TXT
             </a>
         </div>

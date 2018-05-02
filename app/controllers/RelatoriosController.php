@@ -56,4 +56,29 @@ class RelatoriosController extends Controller {
         // Chama a view e passa os dados para ela
         view('relatoriomensagens', $arrDados);
     }
+
+
+    /**
+     * Realiza a exibição e download de txt
+     */
+    public function relatorioEmailsTxt() {
+        $filename = 'relatorioEmails.txt';
+        header('Content-disposition: attachment; filename='.$filename);
+        header('Content-type: text/plain');
+
+        $list_consulta_dominio = Email::make()->select('Distinct domain')->find();
+
+        $arrDominios = array();
+        foreach($list_consulta_dominio as $k => $i) {
+            $emails = Email::make()->where('domain = ?', $i->getDomain())->find();
+
+            echo 'Domínio: '.$i->getDomain()."\r\n";
+            foreach($emails as $e) {
+                echo '- '.$e->getEmail()."\r\n";
+            }
+            echo "\r\n\r\n";
+        }
+
+
+    }
 }

@@ -21,5 +21,5 @@ Router::define("/exclui/{id}","MainController/excluiemail");
 Router::define('relatorioemails', 'RelatoriosController/relatorioEmails');
 // Rota que exibe a tela de relatório de mensagens
 Router::define('relatoriomensagens', 'RelatoriosController/relatorioMensagens');
-
-Router::define("/pesquisa_mensagens","RelatorioController/pesquisamensagens");
+// Rota para salvar arquiv txt do relatório de emails
+Router::define('relatorioemails/exportar', 'RelatoriosController/relatorioEmailsTxt');
