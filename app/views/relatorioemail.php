@@ -20,17 +20,12 @@
     <?php
     foreach ($data as $key => $domain) {
         echo '<div class="col-3-12">';
-        $dominioatual = $domain->getDomain();
-        echo '<b>Domínio:</b> <i>'.$dominioatual.'</i><br><br>';
-        $list_email = Email::make()->all();
-        foreach($list_email as $le => $email) {
-            if($email->getDomain() == $dominioatual){
-                echo '- '.$email->getEmail()."<br>";
-            }
+        echo '<b>Domínio:</b> <i>'.$domain['dominio']->getDomain().'</i><br><br>';
+        foreach($domain['emails'] as $le => $email) {
+            echo '- '.$email->getEmail()."<br>";
         }
         echo'</div>';
     }
-
     ?>
 
 

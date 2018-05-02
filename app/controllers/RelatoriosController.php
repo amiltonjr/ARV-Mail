@@ -10,7 +10,13 @@ class RelatoriosController extends Controller {
     public function relatorioEmails() {
         $list_consulta_dominio = Email::make()->select('Distinct domain')->find();
 
-        view('relatorioemail', $list_consulta_dominio);
+        $arrDominios = array();
+        foreach($list_consulta_dominio as $k => $i) {
+            $emails = Email::make()->where('domain = ?', $i->getDomain())->find();
+            $arrDominios[] = array('dominio' => $i, 'emails' => $emails);
+        }
+
+        view('relatorioemail', $arrDominios);
     }
 
 
