@@ -93,7 +93,6 @@ abstract class Model {
      * Obtém um dado buscando pela sua $primarykey igual ao valor passado à função
      */
     public function get ($pk) {
-        dump($this->where($this->primarykey . ' = ?', [$pk])->generatedSql());
 		if (count($this->where($this->primarykey . ' = ?', [$pk])->find()) > 0)
 			return $this->where($this->primarykey . ' = ?', [$pk])->find()[0];
 		else
