@@ -78,11 +78,30 @@ class MainController extends Controller {
 
 
     }
-    public function pesquisamensagens($data){
-	    $datainicio = $_GET["datainicio"];
-	    $datafim = $_GET["datafim"];
-	    dump($listamensagens = Sent::make()->select()->where('sendtime between '.$datainicio.' 00:00:00 and '.$datafim.' 23:59:59')->find());
-//	    redirect("/relatoriomensagens/{".$datainicio."},{".$datafim."}");
+    public function pesquisamensagens(){
+	    if(isset($_POST["pesquisar"])){
+            $datainicio = $_POST["data_inicio"].' 00:00:00';
+            $datafim = $_POST["data_fim"].' 23:59:59';
+            $listamensagens = Sent::make()->select()->where('sendTime between ? and ?', [$datainicio, $datafim])->find();
+            foreach($listamensagens as $item){
+                echo '<label><div class="row">';
+                echo    '<div class="col-3-12">';
+                echo        $item->getSubject();
+                echo    '</div>';
+                echo    '<div class="col-1-2">';
+                echo        $item->getMessage();
+                echo    '</div>';
+                echo    '<div class="col-1-2">';
+                echo        $item->getSendTime();
+                echo    '</div>';
+                $email = Email::make()->get(1);
+                echo        $email->getEmail();
+                echo    '</div>';
+                echo '</div></label>';
+            }
+
+        }else
+            redirect("/relatoriomensagens");
     }
 
 }
