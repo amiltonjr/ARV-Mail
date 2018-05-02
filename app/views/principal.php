@@ -73,7 +73,7 @@
                     echo        $item->getEmail();
                     echo    '</div>';
                     echo    '<div class="col-2-12">';
-                    echo        '<a href="exclui'.$item->getId().'">Excluir</a>';
+                    echo        '<a href="exclui/'.$item->getId().'">Excluir</a>';
                     echo    '</div>';
                     echo '</div></label>';
                 }
