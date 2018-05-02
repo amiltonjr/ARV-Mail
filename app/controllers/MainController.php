@@ -11,28 +11,32 @@ class MainController extends Controller {
         view("principal", [$lista, $grupos]);
 
     }
+
     //verifica se o email é válido
     public function isValidEmail($email='') {
         return ($email = filter_var($email, FILTER_VALIDATE_EMAIL)) !== false;
     }
+
     //extrai o domínio de um email passado como parãmetro
     public function getEmailDomain($email='') {
         return substr(strrchr($email, "@"), 1);
     }
+
     //cadastra um novo email com base no formulário de email da view principal
     public function cadastraemail() {
-	// Se o endereço de e-mail é válido
+	    // Se o endereço de e-mail é válido
         if (isset($_POST['novo_email']) && $this->isValidEmail($_POST['novo_email'])) {
             $email = new Email();
-	    $email->setName($_POST['novo_nome']);
-	    $email->setEmail($_POST['novo_email']);
+	        $email->setName($_POST['novo_nome']);
+	        $email->setEmail($_POST['novo_email']);
             $email->SetDomain($this->getEmailDomain($email->getEmail()));
             $email->setRegistrationDate('CURRENT_TIMESTAMP');
             $email->setGroupId($_POST['group_id']);
-	    $email->save();
+	        $email->save();
         }
 	    redirect("/");
     }
+
     //cadastra um novo grupo com base no formulário de grupo na view principal
     public function cadastragrupo(){
         if (isset($_POST['novo_grupo'])) {
@@ -44,6 +48,7 @@ class MainController extends Controller {
 
         redirect("/");
     }
+
     //envia email com base no formulário de enviar email da view principal
     public function enviaemail()
     {
@@ -65,7 +70,6 @@ class MainController extends Controller {
                 $Sent->setMessage($_POST["corpo_email"]);
                 $mensagem->setFromName("Wilson");
                 $Sent->save();
-                //dump($Sent);
                 $mensagem->send();
                 redirect("/");
             }
@@ -80,9 +84,6 @@ class MainController extends Controller {
         $email = Email::make()->get($data["id"]);
         $email->delete();
         redirect("/");
-
-
-
     }
 
 }

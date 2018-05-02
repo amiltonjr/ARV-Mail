@@ -8,14 +8,17 @@ class RelatoriosController extends Controller {
      */
 
     public function relatorioEmails() {
+        // Obtém os domínios existentes
         $list_consulta_dominio = Email::make()->select('Distinct domain')->find();
 
+        // Cria um vetor para armazenar o domínio e seus emails referentes
         $arrDominios = array();
         foreach($list_consulta_dominio as $k => $i) {
             $emails = Email::make()->where('domain = ?', $i->getDomain())->find();
             $arrDominios[] = array('dominio' => $i, 'emails' => $emails);
         }
 
+        // Chama a view e passa para ela o vetor criado
         view('relatorioemail', $arrDominios);
     }
 
@@ -63,11 +66,15 @@ class RelatoriosController extends Controller {
      */
     public function relatorioEmailsTxt() {
         $filename = 'relatorioEmails.txt';
+
+        // Define cabeçalhos para indicar que a página deve ser baixada em formato de texto
         header('Content-disposition: attachment; filename='.$filename);
         header('Content-type: text/plain');
 
+        // Obtém os dados do banco
         $list_consulta_dominio = Email::make()->select('Distinct domain')->find();
 
+        // Imprime os dados na página
         foreach($list_consulta_dominio as $k => $i) {
             $emails = Email::make()->where('domain = ?', $i->getDomain())->find();
 
@@ -84,6 +91,8 @@ class RelatoriosController extends Controller {
      */
     public function relatorioMensagensTxt($get) {
         $filename = 'relatorioMensagnes.txt';
+
+        // Define cabeçalhos para indicar que a página deve ser baixada em formato de texto
         header('Content-disposition: attachment; filename='.$filename);
         header('Content-type: text/plain');
 
@@ -108,6 +117,7 @@ class RelatoriosController extends Controller {
         // Executa a consulta SQL
         $listamensagens = $listamensagens->find();
 
+        // Imprime os dados na página
         foreach($listamensagens as $k => $item) {
             $email = Email::make()->get($item->getEmailId());
 
