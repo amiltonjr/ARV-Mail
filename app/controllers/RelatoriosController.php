@@ -18,7 +18,6 @@ class RelatoriosController extends Controller {
      * Realiza a exibição da página de relatório de emails por domínio
      */
     public function relatorioMensagens() {
-        error_reporting(E_ALL);
         $post = filterPost(); // Obtém os dados vindos por POST, já filtrados
 
         $datainicio = isset($post['data_inicio']) && $post['data_inicio'] != '' ? $post["data_inicio"] . ' 00:00:00' : '';
