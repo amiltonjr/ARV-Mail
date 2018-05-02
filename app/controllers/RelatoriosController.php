@@ -18,21 +18,22 @@ class RelatoriosController extends Controller {
      * Realiza a exibição da página de relatório de emails por domínio
      */
     public function relatorioMensagens() {
+        error_reporting(E_ALL);
         $post = filterPost(); // Obtém os dados vindos por POST, já filtrados
 
-        $datainicio = $post["data_inicio"] . ' 00:00:00';
-        $datafim = $post["data_fim"] . ' 23:59:59';
+        $datainicio = isset($post['data_inicio']) && $post['data_inicio'] != '' ? $post["data_inicio"] . ' 00:00:00' : '';
+        $datafim = isset($post["data_fim"]) && $post['data_fim'] != '' ? $post["data_fim"] . ' 23:59:59' : '';
 
         $listamensagens = Sent::make()->select(); // Inicia o processo de busca no BD
 
         // Realiza a busca conforme os filtros recebidos
-        if($post['data_inicio'] != '' && $post['data_fim'] == '') { // Obteve apenas data de inicio
+        if($datainicio != '' && $datafim == '') { // Obteve apenas data de inicio
             $listamensagens->where('sendTime >= ?', $datainicio);
 
-        } else if($post['data_inicio'] == '' && $post['data_fim'] != '') { // Obteve apenas data de fim
+        } else if($datainicio == '' && $datafim != '') { // Obteve apenas data de fim
             $listamensagens->where('sendTime <= ?', $datafim);
 
-        } else if($post['data_inicio'] != '' && $post['data_fim'] != '') { // Obteve as duas datas
+        } else if($datainicio != '' && $datafim != '') { // Obteve as duas datas
             $listamensagens->where('sendTime between ? and ?', [$datainicio, $datafim]);
 
         }
