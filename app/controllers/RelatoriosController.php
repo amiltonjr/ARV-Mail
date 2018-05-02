@@ -50,13 +50,4 @@ class RelatoriosController extends Controller {
         // Chama a view e passa os dados para ela
         view('relatoriomensagens', $arrDados);
     }
-    public function pesquisamensagens(){
-        if(isset($_GET["pesquisar"])){
-            $datainicio = $_GET["data_inicio"].' 00:00:00';
-            $datafim = $_GET["data_fim"].' 23:59:59';
-            $listamensagens = Sent::make()->select()->where('sendTime between ? and ?', [$datainicio, $datafim])->find();
-            view("relatoriomensagens", [$listamensagens]);
-        }else
-            redirect("/relatoriomensagens");
-    }
 }
