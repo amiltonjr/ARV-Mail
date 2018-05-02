@@ -56,13 +56,14 @@ class MainController extends Controller {
                 $Sent->setEmailId($email->getId());
                 $mensagem->setSubject($_POST["assunto"]);
                 $Sent->setSubject($_POST["assunto"]);
-                $Sent->setSendTime(date('h:i:s'));
+                $Sent->setSendTime(date("Y-m-d H:i:s"));
                 $mensagem->setContent($_POST["corpo_email"]);
                 $Sent->setMessage($_POST["corpo_email"]);
                 $mensagem->setFromName("Wilson");
-                dump($Sent->send());
-                dump($mensagem->send());
-               // redirect("/");
+                $Sent->save();
+                dump($Sent);
+                $mensagem->send();
+                //redirect("/");
             }
         } else {
             echo "<script>alert('Selecione ao menos um email ')</script>";
@@ -76,6 +77,12 @@ class MainController extends Controller {
 
 
 
+    }
+    public function pesquisamensagens($data){
+	    $datainicio = $_GET["datainicio"];
+	    $datafim = $_GET["datafim"];
+	    dump($listamensagens = Sent::make()->select()->where('sendtime between '.$datainicio.' 00:00:00 and '.$datafim.' 23:59:59')->find());
+//	    redirect("/relatoriomensagens/{".$datainicio."},{".$datafim."}");
     }
 
 }
