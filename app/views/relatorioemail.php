@@ -3,25 +3,35 @@
 
 @section('content')
     <div class="topo">
-        <h2>Lista de emails por domínio</h2>
-        <?php
-        $list_consulta_dominio = Email::make()->select('Distinct domain')->find();
-        foreach ($list_consulta_dominio as $key => $domain) {
-            echo '<div class="co  l-3-12">';
-            $dominioatual = $domain->getDomain();
-            echo $dominioatual.'<br><br>';
-            $list_email = Email::make()->all();
-            //dump($list_email);
-            foreach($list_email as $le => $email) {
-                if($email->getDomain() == $dominioatual){
-                    echo $email->getEmail()."<br>";
-                }
-            }
-                echo'<br>';
-        }
-
-        ?>
+        <div class="col-1-2 centered">
+            <a href="<?=SYSROOT?>">
+                Voltar
+            </a>
+        </div>
+        <div class="col-1-2 centered">
+            <a href="#">
+                Exportar para TXT
+            </a>
+        </div>
     </div>
+
+    <h2>Lista de emails por domínio</h2>
+    <br>
+    <?php
+    foreach ($data as $key => $domain) {
+        echo '<div class="col-3-12">';
+        $dominioatual = $domain->getDomain();
+        echo '<b>Domínio:</b> <i>'.$dominioatual.'</i><br><br>';
+        $list_email = Email::make()->all();
+        foreach($list_email as $le => $email) {
+            if($email->getDomain() == $dominioatual){
+                echo '- '.$email->getEmail()."<br>";
+            }
+        }
+        echo'</div>';
+    }
+
+    ?>
 
 
 @endsection

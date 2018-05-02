@@ -61,15 +61,16 @@ class MainController extends Controller {
                 $Sent->setMessage($_POST["corpo_email"]);
                 $mensagem->setFromName("Wilson");
                 $Sent->save();
-                dump($Sent);
+                //dump($Sent);
                 $mensagem->send();
-                //redirect("/");
+                redirect("/");
             }
         } else {
             echo "<script>alert('Selecione ao menos um email ')</script>";
             echo "<meta http-equiv='Refresh' content='0;url=".SYSROOT."'>";
         }
     }
+
     public function excluiemail($data){
         $email = Email::make()->get($data["id"]);
         $email->delete();
@@ -77,31 +78,6 @@ class MainController extends Controller {
 
 
 
-    }
-    public function pesquisamensagens(){
-	    if(isset($_POST["pesquisar"])){
-            $datainicio = $_POST["data_inicio"].' 00:00:00';
-            $datafim = $_POST["data_fim"].' 23:59:59';
-            $listamensagens = Sent::make()->select()->where('sendTime between ? and ?', [$datainicio, $datafim])->find();
-            foreach($listamensagens as $item){
-                echo '<label><div class="row">';
-                echo    '<div class="col-3-12">';
-                echo        $item->getSubject();
-                echo    '</div>';
-                echo    '<div class="col-1-2">';
-                echo        $item->getMessage();
-                echo    '</div>';
-                echo    '<div class="col-1-2">';
-                echo        $item->getSendTime();
-                echo    '</div>';
-                $email = Email::make()->get(1);
-                echo        $email->getEmail();
-                echo    '</div>';
-                echo '</div></label>';
-            }
-
-        }else
-            redirect("/relatoriomensagens");
     }
 
 }

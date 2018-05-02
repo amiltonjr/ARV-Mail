@@ -78,6 +78,10 @@ html, body {
     box-shadow: 0 3px 5px rgba(0,0,0,0.2);
 }
 
+.list-block.full {
+    max-width: 90%;
+}
+
 
 input, button, textarea, select {
     padding: 10px;

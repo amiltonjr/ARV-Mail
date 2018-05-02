@@ -31,10 +31,12 @@
         </form>
 
         <br>
+        <br>
+
         <form METHOD="post" action="cadastragrupo">
             <h2>Adicionar Grupo</h2>
             <input type="text" name="nome_grupo" class="full" placeholder="Grupo">
-            <textarea name="descricao_grupo" class="mini" rows="3" cols="40" placeholder="Descricao"></textarea><br>
+            <textarea name="descricao_grupo" class="mini" rows="3" cols="40" placeholder="Descrição"></textarea><br>
             <button type="submit" name="novo_grupo">Novo</button>
         </form>
     </div>
