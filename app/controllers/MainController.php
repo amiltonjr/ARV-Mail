@@ -71,8 +71,6 @@ class MainController extends Controller {
     }
     public function excluiemail($data){
         $email = Email::make()->get($data["id"]);
-        dump($data['id']);
-        dump(Email::make()->get($data['id']));
         $email->delete();
         redirect("/");
 
