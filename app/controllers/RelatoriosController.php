@@ -6,6 +6,7 @@ class RelatoriosController extends Controller {
     /**
      * Realiza a exibição da página de relatório de emails por domínio
      */
+
     public function relatorioEmails() {
 
 //        $emails = Email::make()->all();
@@ -20,5 +21,14 @@ class RelatoriosController extends Controller {
      */
     public function relatorioMensagens() {
         view('relatoriomensagens');
+    }
+    public function pesquisamensagens(){
+        if(isset($_GET["pesquisar"])){
+            $datainicio = $_GET["data_inicio"].' 00:00:00';
+            $datafim = $_GET["data_fim"].' 23:59:59';
+            $listamensagens = Sent::make()->select()->where('sendTime between ? and ?', [$datainicio, $datafim])->find();
+            view("relatoriomensagens", [$listamensagens]);
+        }else
+            redirect("/relatoriomensagens");
     }
 }
